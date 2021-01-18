@@ -1,1 +1,7 @@
 <h1>Créer une liste</h1>
+<%= simple_form_for [@list] do |f| %>
+    <div>
+    <%= f.input :title %>
+    <%= f.submit "Créer une liste" %>
+    </div>
+<% end %>
