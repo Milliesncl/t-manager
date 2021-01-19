@@ -1,7 +1,7 @@
 <h1><%= @list.title %></h1>
 <% unless @tasks.nil? %>
     <% @tasks.each do |task| %>
-        <li><%= task.title %><%= task.details %></li>
+        <li><%= check_box_tag('box', value = '1', checked = task.completed)%><%= task.title %> - <%= task.details %></li>
     <% end %>
 <% else %>
     <p>No tasks</p>

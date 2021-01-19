@@ -23,10 +23,16 @@ class TasksController < ApplicationController
    end
 
    def edit
+    @task = Task.find(params[:id])
    end
 
    def update
-   end
+    @task = Task.find(params[:id])
+    task_params[:completed] = task_params[:completed] == '0' ? false : true
+    @task.update(task_params)
+
+    redirect_to list_tasks_path(@list.id)
+  end
 
    def destroy
    end
