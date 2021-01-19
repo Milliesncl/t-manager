@@ -12,9 +12,12 @@ class TasksController < ApplicationController
 
    def create
         @task = Task.new(task_params)
+        @task.list_id = @list.id
+
         if @task.save
-            redirect_to list_path
+            redirect_to list_tasks_path(@list.id)
         else
+            raise
             render :new
         end
    end
