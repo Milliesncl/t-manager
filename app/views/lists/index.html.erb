@@ -1,6 +1,6 @@
 <h1>Toutes les listes</h1>
 <% @lists.each do |list| %>
 <%# Add the link to the list tasks show %>
- <li><%= link_to list.title, list_path(list.id) %></li>
+ <li><%= link_to list.title, list_tasks_path(list.id) %></li>
  <%# Add delete task action %>
 <% end %>
