@@ -1,0 +1,9 @@
+<h1>Add a task</h1>
+
+<%= simple_form_for [@list, @task] do |f| %>
+    <div>
+    <%= f.input :title %>
+    <%= f.input :details %>
+    <%= f.submit "Créer une liste" %>
+    </div>
+<% end %>
