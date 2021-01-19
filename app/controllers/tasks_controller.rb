@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
     def index
         # @list = List.find(params.id)
-        @tasks = Task.all
+        @tasks = @list.tasks
     end
 
    def new

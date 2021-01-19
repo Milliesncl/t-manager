@@ -2,6 +2,7 @@
 <% unless @tasks.nil? %>
     <% @tasks.each do |task| %>
         <li><%= check_box_tag('box', value = '1', checked = task.completed)%><%= task.title %> - <%= task.details %></li>
+        <%# Change the value of the completed task %>
     <% end %>
 <% else %>
     <p>No tasks</p>
