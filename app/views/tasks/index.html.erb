@@ -1,1 +1,8 @@
 <h1><%= @list.title %></h1>
+<% unless @task.nil? %>
+    <% @task.each do |task| %>
+        <li><%= task.title %><%= task.details %></li>
+    <% end %>
+<% else %>
+<% end %>
+<%= link_to "Add a task", new_list_task_path(@list.id) %>
