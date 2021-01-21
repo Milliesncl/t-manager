@@ -1,0 +1,8 @@
+<%= simple_form_for [@list, @task] do |f| %>
+    <div>
+    <%= f.input :title %>
+    <%= f.input :details %>
+    <%= f.input :completed %>
+    <%= f.submit "#{zone} une liste" %>
+    </div>
+<% end %>

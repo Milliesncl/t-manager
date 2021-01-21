@@ -2,13 +2,13 @@ class TasksController < ApplicationController
     before_action :get_list
 
     def index
-        # @list = List.find(params.id)
         @tasks = @list.tasks
+        @task = Task.new
     end
 
-   def new
-        @task = Task.new
-   end
+#    def new
+#         @task = Task.new
+#    end
 
    def create
         @task = Task.new(task_params)
