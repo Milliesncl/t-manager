@@ -1,12 +1,10 @@
 <h1><%= @list.title %></h1>
-<% unless @tasks.nil? %>
 <%= turbo_stream_from "tasks" %>
-    <%= turbo_frame_tag "tasks" do %>
-        <%= render @tasks %>
-    <% end %>
-    <%# Change the value of the completed task %>
-<% else %>
-    <p>No tasks</p>
+
+<%= turbo_frame_tag "tasks" do %>
+    <%= render @tasks %>
 <% end %>
 
-<%= render partial: "form", locals: {zone: "Créer", task: @task, list: @list} %>
+<%= turbo_frame_tag "task_form" do %>
+  <%= render partial: "tasks/form", locals: {zone: "Créer", task: @task, list: @list}  %>
+<% end %>
