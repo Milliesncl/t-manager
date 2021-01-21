@@ -15,9 +15,8 @@ class TasksController < ApplicationController
         @task.list_id = @list.id
 
         if @task.save
-            redirect_to list_tasks_path(@list.id)
+            redirect_to list_tasks_path(@task.list_id)
         else
-            raise
             render :new
         end
    end

@@ -1,15 +1,12 @@
 <h1><%= @list.title %></h1>
 <% unless @tasks.nil? %>
-    <% @tasks.each do |task| %>
-    <%= turbo_stream_from "tasks" %>
-        <%= turbo_frame_tag "tasks" do %>
-            <li><%= check_box_tag('box', value = '1', checked = task.completed)%><%= task.title %> - <%= task.details %> <%= link_to "Edit", edit_list_task_path(@list.id, task.id) %></li>
-        <% end %>
-        <%# Change the value of the completed task %>
+<%= turbo_stream_from "tasks" %>
+    <%= turbo_frame_tag "tasks" do %>
+        <%= render @tasks %>
     <% end %>
+    <%# Change the value of the completed task %>
 <% else %>
     <p>No tasks</p>
 <% end %>
 
-<%= render partial: "form", locals: {zone: "Créer"} %>
-<%# <%= link_to "Add a task", new_list_task_path(@list.id) %>
+<%= render partial: "form", locals: {zone: "Créer", task: @task, list: @list} %>
