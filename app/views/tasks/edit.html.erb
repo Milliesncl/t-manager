@@ -1,0 +1,8 @@
+<h1>Editing Task</h1>
+
+<%= turbo_frame_tag dom_id(@task) do %>
+  <div class="card card-body">
+    <%= render partial: "tasks/form", locals: {zone: "Editer", task: @task, list: @list} %>
+    <%= link_to "Cancel", list_tasks_path(@task.list_id) %>
+  </div>
+<% end %>
